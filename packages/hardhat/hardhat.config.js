@@ -25,7 +25,7 @@ const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 //
 // Select the network you want to deploy to here:
 //
-const defaultNetwork = "localhost";
+const defaultNetwork = "Avalanche";
 
 const mainnetGwei = 21;
 
@@ -33,7 +33,7 @@ function mnemonic() {
   try {
     return fs.readFileSync("./mnemonic.txt").toString().trim();
   } catch (e) {
-    if (defaultNetwork !== "localhost") {
+    if (defaultNetwork !== "Avalanche") {
       console.log(
         "☢️ WARNING: No mnemonic file created for a deploy account. Try `yarn run generate` and then `yarn run account`."
       );
@@ -54,7 +54,7 @@ module.exports = {
 
   networks: {
     localhost: {
-      url: "http://localhost:8545",
+      url: "http://localhost:3000",
       /*      
         notice no mnemonic here? it will just use account 0 of the hardhat node to deploy
         (you can put in a mnemonic here to set the deployer locally)
